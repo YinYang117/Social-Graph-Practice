@@ -16,7 +16,8 @@ class SocialNetwork {
   }
 
   getUser(userID) {
-    // Your code here
+    if (!Object.hasOwn(this.users, `${userID}`)) return null;
+    return this.users[`${userID}`];
   }
 
   follow(userID1, userID2) {
