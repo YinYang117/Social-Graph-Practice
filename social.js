@@ -1,3 +1,5 @@
+const { toValueOrError } = require("mocha/lib/runnable");
+
 // Implement the SocialNetwork class here
 class SocialNetwork {
 
@@ -29,15 +31,22 @@ class SocialNetwork {
   }
 
   getFollows(userID) {
-    // Your code here
+    return this.follows[userID]
   }
 
   getFollowers(userID) {
-    // Your code here
+    let followers = new Set();
+  
+    for (const followKey in this.follows) {
+      if (this.follows[followKey].has(userID)) followers.add(parseInt(followKey))
+    }
+
+  return followers
   }
 
   getRecommendedFollows(userID, degrees) {
-    // Your code here
+
+    
   }
 }
 
